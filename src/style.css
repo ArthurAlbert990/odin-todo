@@ -8,7 +8,6 @@
     box-sizing: border-box;
 }
 
-
 html{
     font-family: 'IBM Plex Sans', sans-serif;
     width: 100vw;
@@ -22,4 +21,102 @@ body{
 
 h1, h2, h3{
     font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.searchbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    width: 20vw;
+    height: 2.5rem;
+}
+.searchField{
+    outline: none;
+    border: none;
+
+    padding: 1rem;
+    width: 100%;
+    background-color: gainsboro;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+.searchButton{
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    color: dodgerblue;
+    border-right: 3px solid dodgerblue;
+    background-color: gainsboro;
+}
+
+.categories > nav > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+.categories > nav > ul > li{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+    height: 2rem;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    color:grey;
+}
+.categories > nav > ul > li>p{
+    display: flex;
+    align-items: center;
+    padding-left: 0.3rem;
+}
+
+.gg-bolt{
+    color: dodgerblue;
+}
+.gg-calendar-today{
+    color: red;
+}
+.gg-calendar-next{
+    color: brown;
+}
+.gg-sand-clock{
+    color:green;
+}
+
+
+.todoList{
+    width: 50vw;
+}
+.todoList> ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.card{
+    padding: 0.5rem;
+    background-color:rgb(240, 240, 240);
+}
+.cardTitle{
+    font-weight: 600;
 }
