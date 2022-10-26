@@ -81,6 +81,7 @@ h1, h2, h3{
     font-weight: 600;
     border-radius: 0.3rem;
     color:grey;
+    cursor: pointer;
 }
 .categories > nav > ul > li>p{
     display: flex;
@@ -116,7 +117,33 @@ h1, h2, h3{
 .card{
     padding: 0.5rem;
     background-color:rgb(240, 240, 240);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .cardTitle{
     font-weight: 600;
+}
+
+
+.btnFloat{
+    border: none;
+    outline: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;    
+    color: white;
+
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    background-color: dodgerblue;
+
+    position: fixed;
+    bottom: 4rem;
+    right: 6rem;
+}
+
+.btnFloat>i{
+    transform: scale(1.5);
 }
