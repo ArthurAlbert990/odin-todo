@@ -144,6 +144,79 @@ h1, h2, h3{
     right: 6rem;
 }
 
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+
 .btnFloat>i{
     transform: scale(1.5);
+}
+
+.modalBackground{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    opacity: 0.5;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.addModal{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+    visibility: visible;
+
+    background-color: white;
+    opacity: 1;
+
+    z-index: 0;
+}
+.active{
+    visibility:visible;
+}
+.addModal>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modalHeader, .buttonModalSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.closeBtn>i{
+    color: red;
+}
+.buttonModalSection{
+    justify-content: center;
+}
+.confirm>i{
+    transform: scale(1.5);
+    color: white;
+}
+.buttonModalSection>button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 3.5rem;
+    height: 2rem;
+    background-color: green;
+    color: white;
+    border-radius: 0.25rem;
 }

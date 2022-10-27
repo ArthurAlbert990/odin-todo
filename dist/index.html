@@ -53,6 +53,38 @@
         <button class="btnFloat">
             <i class="gg-add-r"></i>
         </button>
+
+        <div class="modalBackground"></div>
+        <div class="addModal visible">
+            <section class="modalHeader">
+                <h3>Add a Todo!</h3>
+                <button class="closeBtn">
+                    <i class="gg-close"></i>
+                </button>
+            </section>
+        
+            <form>
+                <label for="todoTitle">Title</label>
+                <input type="text" id="todoTitle" name="todoTitle" placeholder="Title">
+                <label for="todoCategory">Category</label>
+                <select name="todoCategory" id="todoCategory">
+                    <option value="today">Today</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="someday">Someday</option>
+                    <option value="anytime">Anytime</option>
+                </select>
+                <label for="todoDescription">Description</label>
+                <textarea name="description" cols="35" rows="5" id="todoDescription"></textarea>
+            </form>
+        
+            <section class="buttonModalSection">
+                <button class="confirm">
+                    <i class="gg-check"></i>
+                </button>
+            </section>
+        
+        </div>
+
     </div>
 </body>
 <script src="main.js"></script>
