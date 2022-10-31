@@ -29,7 +29,18 @@ function selectList(e){
 }
 
 function addTodo() {
-    console.log('addTodo, open modal');
+    modalFunctions.toggleModal();
+}
+
+/** Starts the db (localStorage) with an empty todo key*/
+function startDb(){
+    localStorage['todo']='';
+}
+
+function newTodo(data){
+    console.log('create new todo:')
+    console.log(data);
+    localStorage.setItem('todo',JSON.stringify(data));
 }
 
 //start to listen to buttons click
@@ -38,6 +49,7 @@ const nav = document.querySelectorAll('.category');
 const addTodoBtn = document.querySelector('.btnFloat');
 const modalCloseBtn = document.querySelector('.closeBtn');
 const modalConfirmBtn = document.querySelector('.confirm');
+let form = document.querySelector('form');
 
 
 //listeners
@@ -46,5 +58,11 @@ for(let element of nav){
 }
 
 addTodoBtn.addEventListener('click',addTodo);
-modalCloseBtn.addEventListener('click',modalFunctions.modalClose);
-modalConfirmBtn.addEventListener('click',modalFunctions.modalConfirm);
+modalCloseBtn.addEventListener('click',modalFunctions.toggleModal);
+modalConfirmBtn.addEventListener('click',() => newTodo(modalFunctions.modalConfirm(form)));
+
+
+// ===========================================
+// ===========================================
+// ONDE EU PAREI:
+// adicionar todos no local storage, função: newTodo.

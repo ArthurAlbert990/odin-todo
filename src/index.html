@@ -4,10 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test2</title>
+    
+    <link href='https://css.gg/css' rel='stylesheet'>
+    
+    <title>Todo App</title>
 </head>
 <body>
-    
+    <div class="content">
+        <section class="search">
+            <div class="searchbar">
+                <input type="text" class="searchField" placeholder="Find a task...">
+                <button class="searchButton" type="button">
+                    <i class="gg-search"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="categories">
+            <nav>
+                <ul>
+                    <li class="category today"><i class="gg-bolt"></i><p>TODAY</p></li>
+                    <li class="category upcoming"><i class="gg-calendar-today"></i><p>UPCOMING</p></li>
+                    <li class="category someday"><i class="gg-calendar-next"></i><P>SOMEDAY</P></li>
+                    <li class="category anytime"><i class="gg-sand-clock"></i><p>ANYTIME</p></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="todo">
+            <div class="todoList">
+                <ul>
+                    <li>
+                        <div class="card">
+                            <p class="cardTitle">Just a random task</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae natus labore culpa dolorum eaque esse illum
+                                sapiente voluptatibus animi sequi voluptatem, ad cupiditate, veritatis libero, blanditiis est nobis temporibus hic!
+                            </p>
+                        </div>
+                    </li>
+                    <li>todo</li>
+                    <li>todo</li>
+                    <li>todo</li>
+                    <li>todo</li>
+                </ul>
+            </div>
+        </section>
+
+        <button class="btnFloat">
+            <i class="gg-add-r"></i>
+        </button>
+
+        <div class="modalBackground"></div>
+        <div class="addModal">
+            <section class="modalHeader">
+                <h3>Add a Todo!</h3>
+                <button class="closeBtn">
+                    <i class="gg-close"></i>
+                </button>
+            </section>
+        
+            <form>
+                <label for="todoTitle">Title</label>
+                <input type="text" id="todoTitle" name="todoTitle" placeholder="Title">
+                <label for="todoCategory">Category</label>
+                <select name="todoCategory" id="todoCategory">
+                    <option value="today">Today</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="someday">Someday</option>
+                    <option value="anytime">Anytime</option>
+                </select>
+                <label for="todoDescription">Description</label>
+                <textarea name="description" cols="35" rows="5" id="todoDescription"></textarea>
+            </form>
+        
+            <section class="buttonModalSection">
+                <button class="confirm">
+                    <i class="gg-check"></i>
+                </button>
+            </section>
+        
+        </div>
+
+    </div>
 </body>
 <script src="main.js"></script>
 </html>
