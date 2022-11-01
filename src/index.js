@@ -34,13 +34,23 @@ function addTodo() {
 
 /** Starts the db (localStorage) with an empty todo key*/
 function startDb(){
-    localStorage['todo']='';
+    localStorage['todoList']='[]';
 }
 
+/** Add a new todo to the localStorage*/
 function newTodo(data){
-    console.log('create new todo:')
+    console.log('create new todo:');
     console.log(data);
-    localStorage.setItem('todo',JSON.stringify(data));
+    let storedTodos = JSON.parse(localStorage.getItem('todoList'));
+    storedTodos.push(data);
+    localStorage.setItem('todoList',JSON.stringify(storedTodos));
+}
+
+/**Delete a todo by its index from the localStorage*/
+function deleteTodo(index){
+    let storedTodos = JSON.parse(localStorage.getItem('todoList'));
+    storedTodos.splice(index,1);
+    localStorage.setItem('todoList',JSON.stringify(storedTodos));
 }
 
 //start to listen to buttons click
@@ -61,8 +71,9 @@ addTodoBtn.addEventListener('click',addTodo);
 modalCloseBtn.addEventListener('click',modalFunctions.toggleModal);
 modalConfirmBtn.addEventListener('click',() => newTodo(modalFunctions.modalConfirm(form)));
 
+startDb()//inicia db oom 0 todos.
 
 // ===========================================
 // ===========================================
 // ONDE EU PAREI:
-// adicionar todos no local storage, função: newTodo.
+// função para editar todo

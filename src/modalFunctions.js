@@ -1,13 +1,15 @@
 console.log('modalFunctions')
 
 export function toggleModal(){
-    console.log('close modal')
-
     let modal = document.querySelector('.addModal');
     let background= document.querySelector('.modalBackground');
 
     modal.classList.toggle('visible');
     background.classList.toggle('visible');
+}
+
+export function clearModal(form){
+    form.reset();
 }
 
 export function modalConfirm(form){
@@ -20,6 +22,3 @@ export function modalConfirm(form){
     return formData;
 }
 
-export function clearModal(form){
-    form.reset()
-}
