@@ -4,6 +4,7 @@ import * as modalFunctions from "./modalFunctions.js"
 console.log('index.js [ok]');
 
 let categoryName
+let todoToEditIndex
 
 //functions
 function selectList(e){
@@ -53,13 +54,33 @@ function deleteTodo(index){
     localStorage.setItem('todoList',JSON.stringify(storedTodos));
 }
 
+function editTodo(e){
+    let ulElement = e.target.parentElement.parentElement.parentElement;
+    let indexLi = [...ulElement.children].indexOf(e.target.parentElement.parentElement);
+    todoToEditIndex = indexLi;
+    let fullTodoList = JSON.parse(localStorage.getItem('todoList'));
+    modalFunctions.populateModal(fullTodoList[indexLi], form);
+}
+
+function editTodoOnDb(){
+    console.log('edit todo on db')
+    let index = todoToEditIndex;
+    let storedTodos = JSON.parse(localStorage.getItem('todoList'));
+    let newData = modalFunctions.modalConfirm(form);
+    storedTodos[index] = newData;
+    localStorage.setItem('todoList',JSON.stringify(storedTodos));
+
+}
+
 //start to listen to buttons click
 //elements
 const nav = document.querySelectorAll('.category');
 const addTodoBtn = document.querySelector('.btnFloat');
 const modalCloseBtn = document.querySelector('.closeBtn');
 const modalConfirmBtn = document.querySelector('.confirm');
-let form = document.querySelector('form');
+const modalConfirmEditBtn = document.querySelector('.confirmEditBtn');
+const form = document.querySelector('.stdForm');
+const todoList = document.querySelector('.todoList>ul');
 
 
 //listeners
@@ -70,10 +91,13 @@ for(let element of nav){
 addTodoBtn.addEventListener('click',addTodo);
 modalCloseBtn.addEventListener('click',modalFunctions.toggleModal);
 modalConfirmBtn.addEventListener('click',() => newTodo(modalFunctions.modalConfirm(form)));
+modalConfirmEditBtn.addEventListener('click', editTodoOnDb);
+todoList.addEventListener('click',editTodo);
 
 startDb()//inicia db oom 0 todos.
 
 // ===========================================
 // ===========================================
 // ONDE EU PAREI:
-// função para editar todo
+// alterar estilo dos botões no modal, edit e confirm de acordo com o modal.
+// criar função parar criar a lista dos todos do html de acordo com DB.

@@ -215,7 +215,17 @@ button{
 
     width: 3.5rem;
     height: 2rem;
-    background-color: green;
+    
     color: white;
     border-radius: 0.25rem;
+}
+.buttonModalSection>.confirm{
+    background-color: green;
+}
+.buttonModalSection>.confirmEditBtn{
+    background-color: dodgerblue;
+}
+.confirmEditBtn>i{
+    transform: scale(1.5);
+    color: white;
 }
