@@ -1,5 +1,6 @@
 import css from "./style.css";
 import * as modalFunctions from "./modalFunctions.js"
+import * as loadContents from "./loadContents.js"
 
 console.log('index.js [ok]');
 
@@ -31,6 +32,8 @@ function selectList(e){
 
 function addTodo() {
     modalFunctions.toggleModal();
+    modalConfirmBtn.style.display='flex';
+    modalConfirmEditBtn.style.display='none';
 }
 
 /** Starts the db (localStorage) with an empty todo key*/
@@ -45,6 +48,7 @@ function newTodo(data){
     let storedTodos = JSON.parse(localStorage.getItem('todoList'));
     storedTodos.push(data);
     localStorage.setItem('todoList',JSON.stringify(storedTodos));
+    loadContents.genTodoList(); 
 }
 
 /**Delete a todo by its index from the localStorage*/
@@ -60,6 +64,8 @@ function editTodo(e){
     todoToEditIndex = indexLi;
     let fullTodoList = JSON.parse(localStorage.getItem('todoList'));
     modalFunctions.populateModal(fullTodoList[indexLi], form);
+    modalConfirmBtn.style.display='none';
+    modalConfirmEditBtn.style.display='flex';
 }
 
 function editTodoOnDb(){
@@ -69,7 +75,9 @@ function editTodoOnDb(){
     let newData = modalFunctions.modalConfirm(form);
     storedTodos[index] = newData;
     localStorage.setItem('todoList',JSON.stringify(storedTodos));
-
+    modalConfirmEditBtn.style.display='none';
+    modalConfirmBtn.style.display='flex';
+    loadContents.genTodoList();
 }
 
 //start to listen to buttons click
@@ -96,8 +104,8 @@ todoList.addEventListener('click',editTodo);
 
 startDb()//inicia db oom 0 todos.
 
+
 // ===========================================
 // ===========================================
 // ONDE EU PAREI:
-// alterar estilo dos botões no modal, edit e confirm de acordo com o modal.
-// criar função parar criar a lista dos todos do html de acordo com DB.
+// criar função parar gerar lista de todos no html de acordo com DB.
