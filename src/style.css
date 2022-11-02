@@ -183,10 +183,6 @@ button{
     visibility: hidden;
 }
 
-.visible{
-    visibility: visible;
-}
-
 .addModal>form{
     display: flex;
     flex-direction: column;
@@ -224,8 +220,13 @@ button{
 }
 .buttonModalSection>.confirmEditBtn{
     background-color: dodgerblue;
+    display: none;
 }
 .confirmEditBtn>i{
     transform: scale(1.5);
     color: white;
+}
+
+.visible{
+    visibility: visible;
 }
